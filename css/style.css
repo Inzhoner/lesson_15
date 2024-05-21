@@ -56,7 +56,7 @@
     gap: 10px;
     align-items: center;
 }
-.support__item,
+/* .support__item, */
 .support__svg {
     width: 30px;
     height: 30px;
@@ -85,16 +85,6 @@
     justify-content: flex-end;
     flex: 0 0 250px;
     gap: 5px;
-}
-
-@media (1230px>=width) {
-    .header__logo-min {
-        display: none;
-    }
-
-    .header__logo {
-        flex: 0 0 167px;
-    }
 }
 
 .header__main::after {
@@ -187,7 +177,20 @@
     align-items: center;
 }
 
+.phone-header__inner {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.phone-header__phone-icon,
+.icon-arrow-box {
+    flex-shrink: 0;
+}
+
 .box-number {
+    /* position: relative; */
     display: flex;
     min-width: 136px;
     flex-direction: column;
@@ -225,8 +228,16 @@
     transition: top 0.3s, opacity 0.3s, visibility 0.3s;
 }
 
-@media (any-hover: hover) {
+/* @media (any-hover: hover) {
     .phone-contacts-box:hover .phone-contacts-box__list {
+        top: 100%;
+        opacity: 1;
+        pointer-events: all;
+    }
+} */
+
+@media (any-hover: hover) {
+    .phone-header__inner:hover .phone-contacts-box__list {
         top: 100%;
         opacity: 1;
         pointer-events: all;
@@ -245,6 +256,10 @@
     transition: transform 0.5s ease;
 }
 
+.icon-header__link--mobile {
+    display: none;
+}
+
 @media (any-hover: hover) {
     .icon-header__img:hover {
         transform: scale(1.1);
@@ -258,7 +273,7 @@
 }
 
 .header__wrapper {
-    width: 100%;
+    flex-basis: 100%;
     display: flex;
     justify-content: space-between;
     gap: 10px 20px;
@@ -294,6 +309,14 @@
         column-gap: 20px;
     }
 
+    .logo-header__min {
+        display: none;
+    }
+
+    .header__logo {
+        flex: 0 0 167px;
+    }
+
     .header__right-list {
         justify-content: end;
     }
@@ -309,5 +332,52 @@
 @media (width<=1080px) {
     .btn__span {
         display: none;
+    }
+}
+
+@media (width<=991.98px) {
+    .box-number,
+    .icon-arrow-box,
+    .support__text {
+        display: none;
+    }
+    .header__wrapper {
+        flex-direction: column;
+    }
+    .header__left-list {
+        justify-content: center;
+    }
+    .header__right-list {
+        justify-content: center;
+    }
+}
+
+@media (width<=819.98px) {
+    .search-form {
+        display: none;
+    }
+    .icon-header__link--mobile {
+        display: block;
+    }
+}
+
+@media (width<=704.98px) {
+    .support__list {
+        display: none;
+    }
+    .icon-header,
+    .header__container {
+        flex-wrap: nowrap;
+        column-gap: 10px;
+    }
+}
+
+@media (width<=569.98px) {
+    .header__top {
+        display: none;
+    }
+
+    .header__container {
+        flex-wrap: wrap;
     }
 }
